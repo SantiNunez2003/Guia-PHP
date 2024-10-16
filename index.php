@@ -6,7 +6,11 @@
     <title>Guia de Ejercicios</title>
 </head>
 <body>
-    <!-- Actividad 4 -->
+    <h1>Guia de Ejercicios de PHP</h1>
+    <br>
+
+    <h2>Ejercicio 4</h2><br>
+    <!-- Ejercicio 4 -->
     <?php 
         $num = rand(1,100);
 
@@ -20,8 +24,10 @@
             echo $num;
         }
     ?>
+    <hr>
 
-    <!-- Actividad 5 -->
+    <h2>Ejercicio 5</h2><br>
+    <!-- Ejercicio 5 -->
     <?php 
         $int = 10;
         $double = 10.5;
@@ -42,8 +48,10 @@
         echo "<br>";
 
     ?>
-
-    <!-- Actividad 6 -->
+    <hr>
+    
+    <h2>Ejercicio 6</h2><br>
+    <!-- Ejercicio 6 -->
     <?php 
         $precioIndividual = 5;
         $cantidad = 10;
@@ -51,8 +59,10 @@
 
         echo $panchos = "Pediste $cantidad de Panchos, te sale $precioIndiviual el total es: $total";
     ?>
-    
-    <!-- Actividad 7 -->
+    <hr>
+
+    <h2>Ejercicio 7</h2><br>
+    <!-- Ejercicio 7 -->
     <?php 
        $aleatorio = rand(1,3);
 
@@ -64,8 +74,10 @@
         echo "El valor es 1: $aleatorio";
        };
     ?>
+    <hr>
 
-    <!-- Actividad 8 -->
+    <h2>Ejercicio 8</h2><br>
+    <!-- Ejercicio 8 -->
     <?php 
         $num = 0;
         $num2 = 0;
@@ -94,10 +106,33 @@
             echo "$num2 -";
         } while ($num3 <= 20);
     ?>
+    <hr>
 
-    <!-- Actividad 9 -->
+    <h2>Ejercicio 9</h2><br>
+    <!-- Ejercicio 9 -->
+    <form method="post" action="">
+        <label for="nombre">Ingrese su nombre</label>
+        <input type="text" name="nombre">
+        <br>
+        <label for="nombre">Ingrese su edad</label>
+        <input type="text" name="edad">
+        <br>
+        <input type="sumbit" value="confirmar">
+    </form>
+    
     <?php 
-       
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $nombre = $_POST['nombre']; 
+            $edad = (int)$_POST['edad'];
+
+            echo "El nombre y la edad son $nombre, $edad años<br>";
+
+            if ($edad >= 18) {
+                echo "Es mayor de edad tiene: $edad años";
+            } else {
+                echo "Es menor de edad tiene: $edad años";
+            }
+        }
     ?>
 
 </body>
