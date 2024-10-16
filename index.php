@@ -28,18 +28,18 @@
         $string = "Hola Mundo";
         $boolean = true;
 
-    echo"Variable Integer";
-    echo $int;
-    echo "<br>";
-    echo"Variable Double";
-    echo $double;
-    echo "<br>";
-    echo"Variable String";
-    echo $string;
-    echo "<br>";
-    echo"Variable Boolean";
-    echo $int;
-    echo "<br>";
+        echo"Variable Integer: ";
+        echo $int;
+        echo "<br>";
+        echo"Variable Double: ";
+        echo $double;
+        echo "<br>";
+        echo"Variable String: ";
+        echo $string;
+        echo "<br>";
+        echo"Variable Boolean: ";
+        echo $int;
+        echo "<br>";
 
     ?>
 
