@@ -1,4 +1,3 @@
-
 <h2>Ejercicio 4</h2>
 <!-- Ejercicio 4 -->
 <?php 

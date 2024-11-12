@@ -1,5 +1,5 @@
 <?php 
-    include("./Utils/conexion.php")
+    include("./Utils/conexion.php");
     conectar();
 ?>
 
@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia de Ejercicios</title>
 
-    <link rel="stylesheet" href="./Syles/styles.css">
+    <link rel="stylesheet" href="./Styles/styles.css">
 </head>
 <body>
     <header class="header">
@@ -19,17 +19,38 @@
     
     <div class="container">
         <aside class="sidebar">
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#acerca">Acerca de</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+        <ul>
+            <li><a href="index.php">Inicio</a></li>
+            <?php
+            $sql = "SELECT nombre_item, nombre_modulo FROM menu";
+            if (!$resultados = $con->query($sql)) {
+                printf("Falló en la obtención de datos\n");
+                exit();
+            }
+
+            $modulos = $resultados->fetch_all(MYSQLI_ASSOC);
+            foreach ($modulos as $modulo) {
+                echo "<li><a href=\"index.php?modulo=$modulo[nombre_modulo]\">$modulo[nombre_item]</a></li>";
+            }
+
+            ?>
+        </ul>
         </aside>
         
         <main class="content">
-            <h2>Contenido Principal</h2>
-            <p>Contenido de la Pagina</p>
+        <?php
+
+            if (isset($_GET["modulo"])) {
+            include("Modules/$_GET[modulo].php");
+            } else {
+            ?>
+                <h2>Bienvenido a la Guía PHP</h2>
+                <p>Este es la pagina principal</p> 
+                <p>Esta pagina contiene los ejercicios de la guía 20 y 22 de php.</p>
+            <?php
+            }
+
+        ?>
         </main>
     </div>
 

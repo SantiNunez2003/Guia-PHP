@@ -1,13 +1,13 @@
 <h2>Ejercicio 10</h2>
      <!-- Ejercicio 10 -->
-    <form method="post" action="">
+    <form method="post" action="index.php?modulo=Ejercicio10">
         <label for="nombre">Ingrese su nombre</label>
         <input type="text" name="nombre">
         <br>
         Estudios:
-        <input type="radio" name="rad1" value="sin">Sin Estudios
-        <input type="radio" name="rad2" value="primario">Estudios Primarios
-        <input type="radio" name="rad3" value="secundario">Estudios Secundarios
+        <input type="radio" name="estudio" value="sin">Sin Estudios
+        <input type="radio" name="estudio" value="primario">Estudios Primarios
+        <input type="radio" name="estudio" value="secundario">Estudios Secundarios
         <br>
         <button type="sumbit">Confirmar</button>
     </form>
@@ -15,17 +15,22 @@
     <?php 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nombre = $_POST['nombre']; 
-            
+            $estudio = $_POST['estudio'];
+
             echo("Hola $nombre, tus estudios son:" );
 
-            if ($_POST['rad1'] == "sin") {
-                echo "Sin estudios.";
-            };
-            if ($_POST['rad2'] == "primario") {
-                echo "Estudios primarios.";
-            };
-            if ($_POST['rad3'] == "secundario") {
-                echo "Estudios secundarios.";
-            };
+            switch ($estudio) {
+                case 'sin':
+                    echo "Sin estudios.";
+                    break;
+                case 'primario':
+                    echo "Estudios primarios.";
+                    break;
+                case 'secundario':
+                    echo "Estudios secundarios.";
+                default:
+                    # code...
+                    break;
+            }
         }
     ?>
